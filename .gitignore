@@ -10,3 +10,4 @@ packages/.DS_Store
 *.log
 clangd/
 **/.claude/settings.local.json
+mise.local.toml

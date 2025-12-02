@@ -7,7 +7,7 @@ import {
   SaveUserProfileActionPayload,
   SetUserProfilePayload,
 } from '@quiet/types'
-import { fileToBase64String } from '@quiet/common'
+import { fileToBase64String, getFileData, getFilesData } from '@quiet/common'
 
 import { identitySelectors } from '../../identity/identity.selectors'
 import { type Socket, applyEmitParams } from '../../../types'
@@ -28,6 +28,10 @@ export function* saveUserProfileSaga(socket: Socket, action: PayloadAction<SaveU
 
   let base64EncodedPhoto: string | undefined = undefined
   if (action.payload.photo) {
+    const photo: any = action.payload.photo as any
+    logger.error(`photo path: ${photo.path}`)
+    const fileData = getFilesData([{ path: photo.path }])
+    // TODO: modify here
     try {
       base64EncodedPhoto = yield* call(fileToBase64String, action.payload.photo)
     } catch (err) {

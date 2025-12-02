@@ -22,6 +22,7 @@ export interface UserProfile {
   userId: string
   nickname: string
   photo?: string // base64 encoded image
+  photoFile?: FileMetadata // content addressable hash to retrieve profile photo
   fileMetadata?: FileMetadata
   bio?: string
   userData?: UserData

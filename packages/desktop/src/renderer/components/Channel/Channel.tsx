@@ -92,6 +92,7 @@ const Channel = () => {
 
   const handleFileDrop = useCallback((item: { files: any[] }) => {
     if (item) {
+      // example of attaching file
       updateAttachingFiles(
         getFilesData(
           item.files.map(droppedFile => {
